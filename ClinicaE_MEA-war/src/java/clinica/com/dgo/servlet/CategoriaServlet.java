@@ -5,6 +5,8 @@
  */
 package clinica.com.dgo.servlet;
 
+import clinica.com.dgo.bean.JavaBeanCategoria;
+import clinica.com.dgo.entidades.Categoria;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,6 +31,15 @@ public class CategoriaServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+////        String cod = request.getParameter("id");
+        String nombre = request.getParameter("nombre");
+//        boolean est = Boolean.toString(request.getParameter("estado"));
+        Categoria cat = new Categoria();
+//      cat.setId(cod);
+        cat.setNombre(nombre);
+        JavaBeanCategoria jbcat = new JavaBeanCategoria();
+        jbcat.guardar(cat);
+        System.out.println("Categoria almacenada");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -37,7 +48,7 @@ public class CategoriaServlet extends HttpServlet {
             out.println("<title>Servlet CategoriaServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Saludos desde el servlet</h1>");
+            out.println("<h1>Registro Almacenado con Exito</h1>");
             out.println("</body>");
             out.println("</html>");
         }

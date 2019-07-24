@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Categorias.findById", query = "SELECT c FROM Categorias c WHERE c.id = :id")
     , @NamedQuery(name = "Categorias.findByNombre", query = "SELECT c FROM Categorias c WHERE c.nombre = :nombre")
     , @NamedQuery(name = "Categorias.findByEstado", query = "SELECT c FROM Categorias c WHERE c.estado = :estado")})
-public class Categorias implements Serializable {
+public class Categoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,14 +49,14 @@ public class Categorias implements Serializable {
     @Column(name = "estado")
     private boolean estado;
 
-    public Categorias() {
+    public Categoria() {
     }
 
-    public Categorias(Integer id) {
+    public Categoria(Integer id) {
         this.id = id;
     }
 
-    public Categorias(Integer id, String nombre, boolean estado) {
+    public Categoria(Integer id, String nombre, boolean estado) {
         this.id = id;
         this.nombre = nombre;
         this.estado = estado;
@@ -96,10 +96,10 @@ public class Categorias implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Categorias)) {
+        if (!(object instanceof Categoria)) {
             return false;
         }
-        Categorias other = (Categorias) object;
+        Categoria other = (Categoria) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
