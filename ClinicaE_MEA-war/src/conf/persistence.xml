@@ -3,12 +3,6 @@
   <persistence-unit name="ClinicaE_MEA-warPU" transaction-type="RESOURCE_LOCAL">
     <non-jta-data-source>java:module/mysql_bd</non-jta-data-source>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
-    <properties>
-        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/clinica"/>
-        <property name="javax.persistence.jdbc.password" value="root"/>
-        <property name="javax.persistence.jdbc.user" value="Adminroot"/>
-        <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-    </properties>
-    <properties/>
+    <validation-mode>NONE</validation-mode>
   </persistence-unit>
 </persistence>
