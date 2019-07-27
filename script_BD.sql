@@ -133,3 +133,52 @@ INSERT INTO inventario VALUES (3, 3, 2, 1, 52.00, 500, 0, '2020-04-30', false);
 --
 --
 INSERT INTO imagenes VALUES (1, 'C:\Users\gerardo\Documents\NetBeansProjects\ClinicaE_MEA\src\Recursos\Productos\141fe_aspirina_thumb.jpg', 3);
+
+CREATE  TABLE `clinica`.`rol` (
+
+  `id` INT NOT NULL ,
+
+  `nombre` VARCHAR(45) NOT NULL ,
+
+  `descripcion` VARCHAR(45) NULL ,
+
+  PRIMARY KEY (`id`) );
+
+
+INSERT INTO `clinica`.`rol` (`id`, `nombre`, `descripcion`) VALUES ('1', 'Administrador', 'Administra y configura el Sistema');
+
+INSERT INTO `clinica`.`rol` (`id`, `nombre`, `descripcion`) VALUES ('2', 'Usuario', 'Puede registrar y consultar registros');
+
+
+CREATE  TABLE `clinica`.`usuario` (
+
+  `id` INT NOT NULL ,
+
+  `nombres` VARCHAR(50) NULL ,
+
+  `apellidos` VARCHAR(50) NULL ,
+
+  `usuario` VARCHAR(45) NOT NULL ,
+
+  `clave` VARCHAR(45) NOT NULL ,
+
+  `codrol` INT NOT NULL ,
+
+  PRIMARY KEY (`id`) ,
+
+  INDEX `ROL_idx` (`id` ASC) ,
+
+  CONSTRAINT `ROL`
+
+    FOREIGN KEY (`id` )
+
+    REFERENCES `clinica`.`rol` (`id` )
+
+    ON DELETE NO ACTION
+
+    ON UPDATE NO ACTION);
+
+
+INSERT INTO `clinica`.`usuario` (`id`, `nombres`, `apellidos`, `usuario`, `clave`, `codrol`) VALUES ('1', 'Pastor', '', 'gerard', '1234', '1');
+
+INSERT INTO `clinica`.`usuario` (`id`, `nombres`, `usuario`, `clave`, `codrol`) VALUES ('2', 'Gerardo', 'darkps', 'admin', '2');
