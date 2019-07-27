@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+        <style type="text/css">
+            .ui-menubar   { 
+                background-color: #045491;}
+            .ui-menu .ui-menuitem-text {
+                float:left;
+                color: #2D2DF5;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+
+        <p:growl id="growl" life="5000" />
+
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="65">
+                <h:form id="menuForm">
+                    <p:menubar>
+                        <p:submenu label="#{recurso.Maintenance}">
+                            <p:menuitem value="Medicamentos" outcome="/articulo/Lista.xhtml" />
+                            <p:menuitem value="Categorias" outcome="categoria/Lista.xhtml" />
+                            <p:menuitem value="Inventario" outcome="inventario/Lista.xhtml" />                                                    
+                        </p:submenu>
+                        <p:submenu label="Administracion">
+                            <p:menuitem value="Rol" outcome="/admin/rol/Lista.xhtml" />
+                            <p:menuitem value="Usuario" outcome="/admin/usuario/Lista.xhtml" />
+                        </p:submenu>
+                        <f:facet name="options">
+                            <p:commandButton update=":menuForm" icon="ui-icon-extlink" 
+                                             value="Logout"
+                                             action="#{logoutBean.logout()}"/>
+                        </f:facet>   
+                    </p:menubar>
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="west" size="300" collapsed="true"
+                          collapsible="true" collapseSize="25"
+                          closable="false"
+                          header="Left content">
+                <h:form id="leftMenu">
+                    <p:panelMenu style="width:290px">
+                        <p:submenu label="Administracion">
+                            <p:menuitem value="Rol" outcome="/admin/rol/Lista.xhtml" />
+                            <p:menuitem value="Usuario" outcome="/admin/usuario/Lista.xhtml" />
+                        </p:submenu>
+                    </p:panelMenu>
+                    <p:panelMenu style="width:290px">
+                        <p:submenu label="Articulos">
+                            <p:menuitem value="Medicamentos" outcome="/articulo/Lista.xhtml" />
+                            <p:menuitem value="Categorias" outcome="categoria/Lista.xhtml" />
+                            <p:menuitem value="Inventario" outcome="inventario/Lista.xhtml" />       
+                        </p:submenu>
+                    </p:panelMenu>
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="east" size="200" closable="true"
+                          collapsible="true" collapseSize="25"
+                          header="Rigth content">
+                <h:form id="rightMenu">
+                    <p:slideMenu style="width:190px;">
+                        <p:menuitem value="Home" outcome="Index" icon="ui-icon-home"/>
+                        <p:submenu label="Administracion">
+                            <p:menuitem value="Roles" outcome="/admin/rol/Lista" />
+                            <p:menuitem value="Usuarios" outcome="/admin/usuario/Lista" />
+                        </p:submenu>
+                        <p:submenu label="Employees">
+                            <p:menuitem value="Medicamentos" outcome="/articulo/Lista.xhtml" />
+                            <p:menuitem value="Categorias" outcome="categoria/Lista.xhtml" />
+                            <p:menuitem value="Inventario" outcome="inventario/Lista.xhtml" />    
+                        </p:submenu>
+                    </p:slideMenu>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south">
+                <ui:insert name="footer">
+                    <h1 align="center">Copyright © Gerardo Tejada</h1>
+                </ui:insert>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <ui:insert name="body"/>
+            </p:layoutUnit>
+
+        </p:layout>
+
+    </h:body>
+
+</html>

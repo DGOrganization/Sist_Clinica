@@ -4,9 +4,25 @@
         <servlet-name>CategoriaServlet</servlet-name>
         <servlet-class>clinica.com.dgo.servlet.CategoriaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>clinica.com.dgo.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ArticuloServlet</servlet-name>
+        <servlet-class>clinica.com.dgo.servlet.ArticuloServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CategoriaServlet</servlet-name>
         <url-pattern>/CategoriaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ArticuloServlet</servlet-name>
+        <url-pattern>/ArticuloServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
